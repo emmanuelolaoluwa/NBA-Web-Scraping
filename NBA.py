@@ -2,8 +2,7 @@ from urllib.request import urlopen
 from urllib.error import URLError
 from bs4 import BeautifulSoup
 
-alphabets = ["a"]
-#,"b","c","d","e","f","g","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","z"]
+alphabets = ["a","b","c","d","e","f","g","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","z"]
 
 for x in alphabets:
     print("Players Whose name starts with ", x )
