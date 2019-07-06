@@ -1,7 +1,6 @@
 from urllib.request import urlopen
 from urllib.error import URLError
 from bs4 import BeautifulSoup
-import re
 
 alphabets = ["a"]
 #,"b","c","d","e","f","g","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","z"]
@@ -30,11 +29,15 @@ for x in alphabets:
                     
                     bsObj = BeautifulSoup(html,'html.parser')
 
-                    playerList = bsObj.findAll("div",{"itemtype": "https://schema.org/Person"})
+                    playerList = bsObj.findAll("div",{"id": "meta"})
                     for name in playerList:
-                        print("-----------------------------------------")
-                        print(name.getText())
-                        print("-----------------------------------------")
+                        pictureLink = name.findAll("img")
+                        if 'img' in pictureLink.attrs:
+                            print("Work on picture link later", pictureLink.attrs['img'])
+                        else:
+                            print("-----------------------------------------")
+                            print(name.getText())
+                            print("-----------------------------------------")
 
     except urllib.HTTPError:
         continue
